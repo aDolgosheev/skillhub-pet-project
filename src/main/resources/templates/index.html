@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SkillHub - Главная</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Добро пожаловать на SkillHub!</h1>
+    <nav>
+        <a th:href="@{/}">Главная</a>
+        <a th:href="@{/courses}">Курсы</a>
+        <a th:href="@{/login}">Вход</a>
+        <a th:href="@{/register}">Регистрация</a>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Последние курсы</h2>
+        <ul>
+            <li th:each="course : ${courses}">
+                <a th:href="@{/courses/{id}(id=${course.id})}" th:text="${course.title}">Название курса</a>
+            </li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 github.com/aDolgosheev</p>
+</footer>
+</body>
+</html>
